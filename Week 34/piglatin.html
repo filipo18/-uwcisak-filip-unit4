@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pig Latin</title>
+</head>
+    <body>
+
+        <p>Enter text:</p>
+        <input type="text" id="usertext">
+        <button type="button" onclick="translation()">Press to translate</button>
+        <p>The translation is:</p>
+        <p id="piglatinText"></p>
+
+    </body>
+
+   <script>
+
+        function translation() {
+            var input = document.getElementById("usertext").value
+            var translate = input.slice(1) + input.slice(0, 1) + "ay"
+            document.getElementById("piglatinText").innerHTML = translate
+            console.log(translate)
+        }
+
+
+
+    </script>
+</html>

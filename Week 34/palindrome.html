@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>palindrome</title>
+</head>
+<body>
+    <h1>Palindrome</h1>
+
+    <p>Enter word:</p>
+    <input type="text" id="text">
+    <button type="button" onclick="palindromeChk()">Submit</button>
+
+    <h2 id="check"></h2>
+</body>
+<script>
+
+function palindromeChk() {
+    var word = document.getElementById("text").value.toLowerCase()
+
+    var backwards = word.split("").reverse().join("")
+
+    if (word == backwards) {
+        document.getElementById("check").innerHTML = word + " is a palindrome"
+    } else {
+        document.getElementById("check").innerHTML = word + " isn't a palindrome"
+    }
+
+}
+
+
+</script>
+</html>

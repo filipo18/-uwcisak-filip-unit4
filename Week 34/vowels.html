@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vowels</title>
+    <script src="https://cdn.anychart.com/releases/8.0.0/js/anychart-base.min.js"></script>
+</head>
+<script>
+
+function vowelCounter() {
+    var sentence = document.getElementById("sentence").value;
+    var i;
+    var anumb = 0;
+    var enumb = 0;
+    var inumb = 0;
+    var onumb = 0;
+    var unumb = 0;
+
+    for (i of sentence.split("")) {
+        if(i.toLowerCase() == "a"){
+            anumb++
+        }
+        if(i.toLowerCase() == "e"){
+            enumb++
+        }
+        if(i.toLowerCase() == "e"){
+            inumb++
+        }
+        if(i.toLowerCase() == "o"){
+            onumb++
+        }
+        if(i.toLowerCase() == "u"){
+            unumb++
+        }
+
+    }
+
+    document.getElementById("a").innerHTML = "a: " + anumb;
+    console.log("A count: ", anumb);
+    document.getElementById("e").innerHTML = "e: " + enumb;
+    console.log("E count: ", enumb);
+    document.getElementById("i").innerHTML = "i: " + inumb;
+    console.log("I count: ", inumb);
+    document.getElementById("o").innerHTML = "o: " + onumb;
+    console.log("O count: ", onumb);
+    document.getElementById("u").innerHTML = "u: " + unumb;
+    console.log("U count: ", unumb);
+
+    // graph data
+    var data = {
+
+        rows: [
+        ["A", anumb],
+        ["E", enumb],
+        ["I", inumb],
+        ["O", onumb],
+        ["U", unumb]
+    ]};
+
+    // draw the graph
+    var chart = anychart.bar();
+    chart.data(data);
+    chart.title("Graph");
+    chart.container("graph");
+    chart.draw();
+
+}
+
+
+</script>
+
+<body>
+    <h1>This program will count vowels</h1>
+
+    <p>Enter sentence:</p>
+    <input type="text" id="sentence">
+    <button type="button" onclick="vowelCounter()">submit</button>
+    <p>Number of vowels:</p>
+
+    <div id="a"></div>
+    <div id="e"></div>
+    <div id="i"></div>
+    <div id="o"></div>
+    <div id="u"></div>
+
+    <div id="graph" height="200" ></div>
+</body>
+</html>
